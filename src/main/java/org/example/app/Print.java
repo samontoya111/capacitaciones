@@ -1,28 +1,28 @@
 package org.example.app;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.app.enums.OptionMenu;
-import org.example.model.employee.Employee;
-import org.example.repository.EmployeeRepository;
-import org.example.service.EmployeeService;
+import org.example.utils.DateUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import static org.example.app.enums.OptionMenu.DEFAULT;
-import static org.example.app.enums.OptionMenu.EXIT;
 
 @Slf4j
 public class Print {
-    public static void text(String text){
+    private Print() {
+    }
+
+    public static final String TEMPLATE = "Resultado: %s ";
+
+    public static void resultIs(String text){
+      log.info(TEMPLATE.formatted(text));
+    }
+    public static void message(String text){
       log.info(text);
     }
-    public static void text(List<String> texts){
+    public static void resultIs(List<String> texts){
         texts.forEach(log::info);
     }
     public static void welcome(){
-      log.info("Este es el sistema de Gestion de Empleados.");
+      log.info("Este es el sistema de Gestion de Empleados. -- %s".formatted(DateUtils.now()));
     }
 
 

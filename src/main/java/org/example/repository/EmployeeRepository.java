@@ -30,8 +30,4 @@ public class EmployeeRepository {
     public List<Employee> getEmployeesByPosition(String position) {
        return findAll().stream().filter(employee -> employee.getPosition().equals(position)).toList();
     }
-    public void updateById(int id, Employee employee) {
-        employeeStorage.put(String.valueOf(id), employee);
-    }
-
 }
