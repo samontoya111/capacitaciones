@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.example.config.LocalDateTypeAdapter;
 
-
 import java.time.LocalDate;
 
 public class JsonUtils {
