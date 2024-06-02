@@ -13,7 +13,7 @@ public enum OptionMenu {
     CREATE,
     UPDATE,
     LIST,
-    SEARCH_OFFICE_BY_ID,
+    SEARCH_OFFICE_BY_EMPLOYEE_ID,
     TOTAL_EMPLOY_OFFICE,
     EXIT;
 

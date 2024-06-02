@@ -62,7 +62,7 @@ public class PrincipalMenu implements Menu {
                     case LIST:
                         menuList(employeeService);
                         break;
-                    case SEARCH_OFFICE_BY_ID:
+                    case SEARCH_OFFICE_BY_EMPLOYEE_ID:
                         Print.message("Buscar  oficina por id de empleado");
                         id = MenuService.selectOption("Ingrese id del empleado");
                         Print.resultIs(officeService.getOfficeByEmployeeId(Integer.parseInt(id)));
