@@ -13,8 +13,8 @@ import static org.example.app.enums.OptionMenu.DEFAULT;
 import static org.example.app.enums.OptionMenu.EXIT;
 
 @Service
-public class Principal implements Menu {
-    public Principal() {
+public class PrincipalMenu implements Menu {
+    public PrincipalMenu() {
     }
 
     @Override
@@ -62,7 +62,7 @@ public class Principal implements Menu {
                     case LIST:
                         menuList(employeeService);
                         break;
-                    case SEARCH:
+                    case SEARCH_OFFICE_BY_ID:
                         Print.message("Buscar  oficina por id de empleado");
                         id = MenuService.selectOption("Ingrese id del empleado");
                         Print.resultIs(officeService.getOfficeByEmployeeId(Integer.parseInt(id)));

@@ -2,12 +2,12 @@ package org.example.service;
 
 import org.example.repository.EmployeeRepository;
 import org.example.repository.OfficeRepository;
-import org.example.service.menu.Principal;
+import org.example.service.menu.PrincipalMenu;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AppService {
-    private static Principal principal = new Principal();
+    private static PrincipalMenu principal = new PrincipalMenu();
 
     protected AppService() {
     }

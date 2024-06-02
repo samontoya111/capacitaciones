@@ -24,6 +24,5 @@ public class Employee extends CommonAttribute {
     }
 
     public Employee() {
-
     }
 }
