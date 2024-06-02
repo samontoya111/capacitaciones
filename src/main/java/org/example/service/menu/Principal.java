@@ -56,7 +56,7 @@ public class Principal implements Menu {
                     case SEARCH:
                         Print.message("Buscar  oficina por id de empleado");
                         id = MenuService.selectOption("Ingrese id del empleado");
-                        Print.resultIs(officeService.getOfficeByEmployeeId(Integer.parseInt(id)).name);
+                        Print.resultIs(officeService.getOfficeByEmployeeId(Integer.parseInt(id)));
                         break;
 
                     case TOTAL_EMPLOY_OFFICE:
