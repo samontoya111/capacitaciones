@@ -19,20 +19,26 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public void addEmployee(Employee employee){
+    public void addEmployee(Employee employee) throws CustomException {
+        Validations.validateEmployee(employee);
         employeeRepository.save(employee);
         Print.message("creado con exito");
     }
+
     public List<String> getEmployees(){
         return printEmpleados(employeeRepository.findAll());
     }
-    public String getEmployeesById(int id) throws CustomException {
+    public Employee getEmployeeById(int id) throws CustomException {
         Optional<Employee> employee = employeeRepository.findById(id);
-        if(employee.isEmpty()){
-            Validations.isNull("Empleado", id);
+        if (employee.isEmpty()){
+            throw new CustomException(Validations.isNull("Empleado", id));
         }
-        return JsonUtils.objectToJson(employeeRepository.findById(id).orElseThrow());
 
+        return employee.get();
+
+    }
+    public String getJsonEmployeesById(int id) throws CustomException {
+        return JsonUtils.objectToJson(getEmployeeById(id));
     }
 
     public String getEmployeesByPosition(String  position) throws CustomException {
@@ -47,13 +53,17 @@ public class EmployeeService {
     }
 
     public void updatePositionOfEmployee(int id, String position) throws CustomException {
-        Employee employee = employeeRepository.findById(id).orElse(null);
+        Employee employee = getEmployeeById(id);
 
         if (employee != null) {
             employee.setPosition(position);
         } else {
             Validations.isNull("Empleado", id);
         }
+        updateEmployee(employee);
+    }
+    public void updateEmployee(Employee employee) throws CustomException {
+        Validations.validateEmployee(employee);
         employeeRepository.save(employee);
     }
 

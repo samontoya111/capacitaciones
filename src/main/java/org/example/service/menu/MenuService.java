@@ -7,6 +7,7 @@ import org.example.service.Validations;
 import java.util.Scanner;
 
 public class MenuService {
+    private MenuService(){}
     static String selectOption(String message) throws CustomException {
         Scanner scanner = new Scanner(System.in);
         Print.message(message);

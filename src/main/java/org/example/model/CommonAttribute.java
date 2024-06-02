@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class CommonAttribute {
-    public int id;
+    public Integer id;
     public String name;
 
     public CommonAttribute() {

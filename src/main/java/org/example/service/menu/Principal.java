@@ -4,6 +4,7 @@ import org.example.app.Print;
 import org.example.app.enums.MenuList;
 import org.example.app.enums.OptionMenu;
 import org.example.exception.CustomException;
+import org.example.model.employee.Employee;
 import org.example.service.EmployeeService;
 import org.example.service.OfficeService;
 import org.springframework.stereotype.Service;
@@ -34,15 +35,23 @@ public class Principal implements Menu {
                 optionMenu = OptionMenu.findOptionsByOrdinal(Integer.parseInt(select));
 
                 switch(optionMenu) {
+                    case TEST_ADD:
+                        employeeService.addEmployee(new Employee());
+                        break;
+                    case TEST_UPDATE:
+                        Employee employee = employeeService.getEmployeeById(1);
+                        employee.setName(null);
+                        employeeService.updateEmployee(employee);
+                        break;
                     case CREATE:
                         String textBlock = """
     Ingrese json con la informacion del empleado
         Este es un ejemplo
             {"id":4,"name":"Santi","position":"A","dateOfHire":"02-01-2024","status":"ACTIVE","salary":1000000.0}
+            {"id":"","name":"","position":"","dateOfHire":"","status":"","salary":""}
 """;
                         String json = MenuService.selectOption(textBlock);
                         employeeService.addEmployee(employeeService.getEmployeeFromJson(json));
-
                         break;
                     case UPDATE:
                         Print.message("Actualizacion de posision");
@@ -104,7 +113,7 @@ public class Principal implements Menu {
                         break;
                     case BY_ID:
                         select = MenuService.selectOption("Ingrese el Id del empleado");
-                        Print.resultIs(employeeService.getEmployeesById(Integer.parseInt(select)));
+                        Print.resultIs(employeeService.getJsonEmployeesById(Integer.parseInt(select)));
                         break;
                     case BY_POSITION:
                         select = MenuService.selectOption("Ingrese el Posicion del empleado");

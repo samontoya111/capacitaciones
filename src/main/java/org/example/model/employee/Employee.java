@@ -22,4 +22,8 @@ public class Employee extends CommonAttribute {
         this.status = status;
         this.salary = salary;
     }
+
+    public Employee() {
+
+    }
 }

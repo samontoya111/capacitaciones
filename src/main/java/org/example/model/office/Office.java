@@ -10,11 +10,11 @@ import java.util.List;
 @Setter
 public class Office extends CommonAttribute {
     public Enum city;
-    public List<Integer> EmployeesId;
+    public List<Integer> employeesId;
 
-    public Office(int id, String name, Enum city, List<Integer> EmployeesId) {
+    public Office(int id, String name, Enum city, List<Integer> employeesId) {
         super(id, name);
         this.city = city;
-        this.EmployeesId = EmployeesId;
+        this.employeesId = employeesId;
     }
 }

@@ -8,6 +8,8 @@ import java.util.Optional;
 
 public enum OptionMenu {
     DEFAULT,
+    TEST_ADD,
+    TEST_UPDATE,
     CREATE,
     UPDATE,
     LIST,
